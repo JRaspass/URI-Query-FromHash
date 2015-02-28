@@ -37,6 +37,13 @@ either by a simple scalar or an array ref of simple scalars.
 
 All strings are assumed to be UTF-8 decoded values.
 
+=head1 BENCHMARK
+
+ $ perl -Ilib example/bench.pl
+               Rate        uri hash2query
+ uri        24436/s         --       -59%
+ hash2query 59077/s       142%         --
+
 =head1 SEE ALSO
 
 L<URI>

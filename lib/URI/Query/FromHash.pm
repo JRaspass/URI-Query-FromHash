@@ -20,16 +20,18 @@ sub hash2query {
 
     my $q = '';
 
-    # TODO test we don't modify values (we blatently do!)
-    for my $key ( sort keys %$args ) {
-        $key =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
-        $key =~ y| |+|;
+    while ( my ($k, $v) = each %$args ) {
+        $k =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
+        $k =~ y| |+|;
 
-        for ( ref $args->{$key} ? @{ $args->{$key} } : $args->{$key} ) {
-            s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
-            y| |+|;
+        for ( ref $v ? @$v : $v ) {
+            # Avoid modifying the original.
+            my $v = $_;
 
-            $q .= "$key=$_&";
+            $v =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
+            $v =~ y| |+|;
+
+            $q .= "$k=$v&";
         }
     }
 
