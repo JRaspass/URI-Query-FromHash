@@ -15,12 +15,10 @@ sub import {
     *{ caller . '::hash2query' } = \&hash2query;
 }
 
-sub hash2query {
-    my $args = shift;
-
+sub hash2query(+%) {
     my $q = '';
 
-    while ( my ($k, $v) = each %$args ) {
+    while ( my ($k, $v) = each %{ $_[0] // return '' } ) {
         $k =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
         $k =~ y| |+|;
 

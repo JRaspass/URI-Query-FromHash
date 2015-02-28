@@ -20,6 +20,12 @@ URI::Query::FromHash - Construct a query string from a hash ref
     utf8 => '☃',
  };
 
+ # or
+
+ my %args = ...;
+
+ my $query_string = hash2query %args;
+
 =head1 DESCRIPTION
 
 URI::Query::FromHash aims to be a fast, light query string constructor.
