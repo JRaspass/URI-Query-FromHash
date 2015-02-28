@@ -4,10 +4,7 @@ use strict;
 use warnings;
 
 my %escapes;
-@escapes{ map chr, 0..255 } = map { sprintf '%%%02X', $_ } 0..255;
-
-# TODO bench
-# $escapes{+chr} = sprintf '%%%02X', $_ for 0..255;
+$escapes{+chr} = sprintf '%%%02X', $_ for 0..255;
 
 sub import {
     no strict 'refs';
