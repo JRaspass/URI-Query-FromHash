@@ -35,7 +35,7 @@ sub hash2query(+%) {
 
     utf8::encode $q;
 
-    $q =~ s|([^\Q;/?:@&=+,$[]%-_.!~*'()\EA-Za-z0-9])|@escapes{ split //, $1 }|eg;
+    $q =~ s|([^\Q;/?:@&=+,\$\[\]%-_.!~*'()\EA-Za-z0-9])|@escapes{ split //, $1 }|eg;
 
     $q;
 }
