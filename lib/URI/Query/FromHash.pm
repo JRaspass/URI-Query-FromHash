@@ -1,4 +1,4 @@
-package URI::Query::FromHash 0.003;
+package URI::Query::FromHash 0.004;
 
 use strict;
 use warnings;
