@@ -1,4 +1,5 @@
 0.003 ????-??-??
+    - Add an unimport sub, so "no URI::Query::FromHash" works.
 
 0.002 2015-03-01
     - Fixed regex escaping.

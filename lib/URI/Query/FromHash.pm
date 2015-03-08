@@ -40,4 +40,10 @@ sub hash2query(+%) {
     $q;
 }
 
+sub unimport {
+    no strict 'refs';
+
+    delete ${ caller . '::' }{hash2query};
+}
+
 1;
