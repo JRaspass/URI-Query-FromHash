@@ -13,8 +13,9 @@ sub import {
 }
 
 sub hash2query(+%) {
-    my $hash = $_[0];
-    my $q    = '';
+    return '' if 'HASH' ne ref( my $hash = $_[0] );
+
+    my $q = '';
 
     for my $k ( sort keys %$hash ) {
         my $v = $hash->{$k};
