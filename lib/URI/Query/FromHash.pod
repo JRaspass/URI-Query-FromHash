@@ -56,7 +56,7 @@ L<URI>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2015 by James Raspass
+Copyright © 2016 by James Raspass
 
 This is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
