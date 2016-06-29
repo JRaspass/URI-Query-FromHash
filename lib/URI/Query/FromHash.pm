@@ -13,9 +13,12 @@ sub import {
 }
 
 sub hash2query(+%) {
-    my $q = '';
+    my $hash = $_[0];
+    my $q    = '';
 
-    while ( my ($k, $v) = each %{ $_[0] // return '' } ) {
+    for my $k ( sort keys %$hash ) {
+        my $v = $hash->{$k};
+
         $k =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
         $k =~ y| |+|;
 

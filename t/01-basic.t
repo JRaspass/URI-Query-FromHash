@@ -13,9 +13,7 @@ is hash2query({ a => 'b' }), 'a=b', 'hash2query { a => "b" }';
 is hash2query({}),    '', 'hash2query {}';
 is hash2query(undef), '', 'hash2query undef';
 
-my $got = hash2query { a => 1, b => 2 };
-
-ok $got eq 'a=1&b=2' || $got eq 'b=2&a=1', 'hash2query { a => 1, b => 2 }';
+is hash2query { a => 1, b => 2 }, 'a=1&b=2', 'hash2query { a => 1, b => 2 }';
 
 is hash2query( { a => [] } ), '', 'hash2query { a => [] }';
 is hash2query( { a => 'b', c => [] } ), 'a=b',
