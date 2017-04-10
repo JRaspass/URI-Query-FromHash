@@ -25,7 +25,7 @@ sub hash2query(+%) {
 
         for ( ref $v ? @$v : $v ) {
             # Avoid modifying the original.
-            my $v = $_;
+            my $v = $_ // '';
 
             $v =~ s|([;/?:@&=+,\$\[\]%])|$escapes{$1}|g;
             $v =~ y| |+|;
